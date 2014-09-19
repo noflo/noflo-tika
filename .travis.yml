@@ -4,5 +4,6 @@ node_js:
 before_script:
   - mkdir jar
   - wget http://apache.cs.utah.edu/tika/tika-app-1.6.jar -o jar/tika-app-1.6.jar
-  - sudo apt-get install openjdk-7-jdk
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq openjdk-7-jdk
   - npm install -g grunt-cli
