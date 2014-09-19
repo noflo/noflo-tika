@@ -23,12 +23,12 @@ describe 'ToHtml component', ->
   describe 'converting Word documents', ->
     it 'should produce HTML for simple file', (done) ->
       out.on 'data', (data) ->
-        console.log data
+        #console.log data
         done()
       ins.send path.resolve __dirname, 'fixtures/file.doc'
     it 'should produce HTML for file with images', (done) ->
       @timeout 10000
       out.on 'data', (data) ->
-        console.log data
+        #console.log data
         done()
       ins.send path.resolve __dirname, 'fixtures/trm-design-project-murphy.docx'

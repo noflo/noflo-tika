@@ -41,7 +41,6 @@ exports.getComponent = ->
       return unless match
       out.send match[1]
     tika.stderr.on "data", (data) ->
-      console.log "E", data
       error += data
     tika.on 'exit', (code) ->
       if code > 0
