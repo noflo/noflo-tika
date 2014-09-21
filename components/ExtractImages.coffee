@@ -1,7 +1,6 @@
 noflo = require 'noflo'
 {spawn} = require "child_process"
 path = require 'path'
-temp = require 'temp'
 
 exports.getComponent = ->
   c = new noflo.Component
