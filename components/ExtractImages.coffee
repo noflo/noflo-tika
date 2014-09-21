@@ -33,6 +33,7 @@ exports.getComponent = ->
       "--extract-dir=#{c.params.dir}"
       filePath
     ]
+    out.beginGroup filePath
     tika.stdout.setEncoding 'utf-8'
     error = ''
     tika.stdout.on 'data', (data) ->
@@ -45,6 +46,7 @@ exports.getComponent = ->
       if code > 0
         callback new Error error
         return
+      out.endGroup()
       do callback
 
   c

@@ -29,6 +29,7 @@ exports.getComponent = ->
     ]
     tika.stdout.setEncoding 'utf-8'
     error = ''
+    out.beginGroup filePath
     tika.stdout.on 'data', (data) ->
       try
         out.send JSON.parse data
@@ -40,6 +41,7 @@ exports.getComponent = ->
       if code > 0
         callback new Error error
         return
+      out.endGroup()
       do callback
 
   c
