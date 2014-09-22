@@ -41,7 +41,8 @@ exports.getComponent = ->
       return unless match
       files = match[1]
       for file in files.split '\n'
-        out.send file
+        resolved = path.resolve c.params.dir, file
+        out.send resolved
     tika.stderr.on "data", (data) ->
       error += data
     tika.on 'exit', (code) ->

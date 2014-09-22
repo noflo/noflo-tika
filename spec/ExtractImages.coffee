@@ -41,7 +41,7 @@ describe 'ExtractImages component', ->
       temp.mkdir 'murphy', (err, tempPath) ->
         files = []
         out.on 'data', (data) ->
-          files.push path.resolve tempPath, data
+          files.push data
         out.on 'disconnect', ->
           chai.expect(files.length).to.be.above 5
           for f in files
