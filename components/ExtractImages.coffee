@@ -39,7 +39,9 @@ exports.getComponent = ->
     tika.stdout.on 'data', (data) ->
       match = data.match /Extracting\s\'(.*)\'.*/
       return unless match
-      out.send match[1]
+      files = match[1]
+      for file in files.split '\n'
+        out.send file
     tika.stderr.on "data", (data) ->
       error += data
     tika.on 'exit', (code) ->
