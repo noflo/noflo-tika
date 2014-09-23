@@ -16,16 +16,18 @@ exports.getComponent = ->
     required: yes
   c.outPorts.add 'out',
     datatype: 'string'
+  c.outPorts.add 'nothing',
+    datatype: 'string'
   c.outPorts.add 'error',
     datatype: 'object'
 
   noflo.helpers.WirePattern c,
     in: 'in'
     params: 'dir'
-    out: 'out'
+    out: ['out', 'nothing']
     async: true
     forwardGroups: true
-  , (filePath, groups, out, callback) ->
+  , (filePath, groups, outports, callback) ->
     tika = spawn 'java', [
       '-jar'
       c.tikaPath
@@ -33,9 +35,13 @@ exports.getComponent = ->
       "--extract-dir=#{c.params.dir}"
       filePath
     ]
+    out = outports.out
+    nothing = outports.nothing
+
     out.beginGroup filePath
     tika.stdout.setEncoding 'utf-8'
     error = ''
+    files = []
     tika.stdout.on 'data', (data) ->
       match = data.match /Extracting\s\'(.*)\'.*/
       return unless match
@@ -49,6 +55,8 @@ exports.getComponent = ->
       if code > 0
         callback new Error error
         return
+      else
+        nothing.send null unless files.length
       out.endGroup()
       do callback
 

@@ -10,14 +10,17 @@ describe 'ExtractImages component', ->
   ins = null
   dir = null
   out = null
+  nothing = null
   beforeEach ->
     c = Extract.getComponent()
     ins = noflo.internalSocket.createSocket()
     dir = noflo.internalSocket.createSocket()
     out = noflo.internalSocket.createSocket()
+    nothing = noflo.internalSocket.createSocket()
     c.inPorts.in.attach ins
     c.inPorts.dir.attach dir
     c.outPorts.out.attach out
+    c.outPorts.nothing.attach nothing
 
   describe 'when instantiated', ->
     it 'should have an input port', ->
@@ -30,9 +33,9 @@ describe 'ExtractImages component', ->
       temp.mkdir 'file', (err, tempPath) ->
         out.on 'data', (data) ->
           chai.expect(true).to.equal false
-        setTimeout ->
+        nothing.on 'data', () ->
+          chai.expect(true).to.equal true
           done()
-        , 1500
         dir.send tempPath
         ins.send path.resolve __dirname, 'fixtures/file.doc'
         ins.disconnect()
@@ -42,6 +45,8 @@ describe 'ExtractImages component', ->
         files = []
         out.on 'data', (data) ->
           files.push data
+        nothing.on 'data', (data) ->
+          chai.expect(true).to.equal false
         out.on 'disconnect', ->
           chai.expect(files.length).to.be.above 5
           for f in files
