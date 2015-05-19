@@ -5,7 +5,7 @@ path = require 'path'
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Extract images from a document'
-  c.tikaPath = path.resolve __dirname, '../jar/tika-app-1.6.jar'
+  c.tikaPath = path.resolve __dirname, '../jar/tika-app.jar'
 
   c.inPorts.add 'in',
     description: 'Source file path'
