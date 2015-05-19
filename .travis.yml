@@ -3,7 +3,7 @@ node_js:
   - 0.10
 before_script:
   - mkdir jar
-  - wget -O jar/tika-app.jar http://psg.mtu.edu/pub/apache/tika/tika-app-1.8.jar
+  - wget -O jar/tika-app.jar http://archive.apache.org/dist/tika/tika-app-1.6.jar
   - sudo apt-get update -qq
   - sudo apt-get install -qq openjdk-7-jdk
   - java -version
