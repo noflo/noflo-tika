@@ -2,9 +2,18 @@ language: node_js
 node_js:
 - 4.2
 before_script:
-  - mkdir jar
-  - wget -O jar/tika-app.jar http://archive.apache.org/dist/tika/tika-app-1.6.jar
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq openjdk-7-jdk
-  - java -version
-  - npm install -g grunt-cli
+- mkdir jar
+- wget -O jar/tika-app.jar http://archive.apache.org/dist/tika/tika-app-1.6.jar
+- sudo apt-get update -qq
+- sudo apt-get install -qq openjdk-7-jdk
+- java -version
+- npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: jononor@gmail.com
+  skip_cleanup: true
+  api_key:
+    secure: Nsf1MI3etKb7E4EyW5ugGlHK/8t9tBfas6VpOWhhj/AMghvKWMpGQ7liMgTKCdsrsZrTwwCLszYQYMSLi9pdfuojLrIWjDly2w++04Z/R8M08mpIQR9tnzQFUC43f68NGRlYB6Q3Tf35vjhFIjrPmW5lzcqQnKQx4y9i8opoKoQ=
+  on:
+    tags: true
+    repo: noflo/noflo-tika
