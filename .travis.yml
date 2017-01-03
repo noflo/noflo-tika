@@ -10,10 +10,10 @@ before_script:
 - npm install -g grunt-cli
 deploy:
   provider: npm
-  email: jononor@gmail.com
   skip_cleanup: true
+  email: henri.bergius@iki.fi
   api_key:
-    secure: Nsf1MI3etKb7E4EyW5ugGlHK/8t9tBfas6VpOWhhj/AMghvKWMpGQ7liMgTKCdsrsZrTwwCLszYQYMSLi9pdfuojLrIWjDly2w++04Z/R8M08mpIQR9tnzQFUC43f68NGRlYB6Q3Tf35vjhFIjrPmW5lzcqQnKQx4y9i8opoKoQ=
+    secure: S1YCIg+BqgFxMQJvbzlfuJfc9NHOuZrw/FZY3Io5Vi9csDOvV/1VlgSmMvk3URJpsvHN3dFD53a671dJetyykIK4hYISfB9QoJLeLC6tFlZtQ+rcmodMmh8ebA+teCtoSY/2Y2vorVYDPgq/DG8/5m08oR+DTzb9RPmS+JeMyIU=
   on:
     tags: true
     repo: noflo/noflo-tika
