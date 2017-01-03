@@ -16,13 +16,13 @@
     "noflo": "0.x >= 0.5"
   },
   "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-coffeelint": "~0.0.10",
-    "grunt-cafe-mocha": "~0.1.12",
     "chai": "~3.5.0",
-    "mocha": "~3.2.0",
+    "grunt": "~1.0.1",
+    "grunt-coffeelint": "~0.0.16",
     "grunt-contrib-watch": "~1.0.0",
-    "grunt-noflo-manifest": "~0.1.11",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-noflo-manifest": "~0.1.12",
+    "mocha": "~3.2.0",
     "temp": "^0.8.1"
   },
   "keywords": [],
