@@ -7,7 +7,6 @@ before_script:
 - sudo apt-get update -qq
 - sudo apt-get install -qq openjdk-7-jdk
 - java -version
-- npm install -g grunt-cli
 deploy:
   provider: npm
   skip_cleanup: true

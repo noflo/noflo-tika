@@ -13,28 +13,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "noflo": "0.x >= 0.5"
+    "noflo": "0.x >= 0.8"
   },
   "devDependencies": {
     "chai": "~4.0.0",
-    "grunt": "~1.0.1",
-    "grunt-coffeelint": "~0.0.16",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "grunt-noflo-manifest": "~0.1.12",
+    "coffeelint": "^2.0.7",
+    "coffeescript": "^2.0.2",
     "mocha": "~4.0.1",
     "temp": "^0.8.1"
   },
   "keywords": [],
   "noflo": {
-    "icon": "file-word-o",
-    "components": {
-      "ExtractImages": "components/ExtractImages.coffee",
-      "ExtractMetadata": "components/ExtractMetadata.coffee",
-      "ToHtml": "components/ToHtml.coffee"
-    }
+    "icon": "file-word-o"
   },
   "scripts": {
-    "test": "grunt test"
+    "pretest": "coffeelint -r components",
+    "test": "mocha --require coffeescript/register -R spec -t 2000 spec/*.coffee"
   }
 }
