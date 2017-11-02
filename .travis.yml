@@ -1,13 +1,12 @@
 language: node_js
 node_js:
-- 4.2
+- 6
 before_script:
 - mkdir jar
 - wget -O jar/tika-app.jar http://archive.apache.org/dist/tika/tika-app-1.6.jar
 - sudo apt-get update -qq
 - sudo apt-get install -qq openjdk-7-jdk
 - java -version
-- npm install -g grunt-cli
 deploy:
   provider: npm
   skip_cleanup: true
