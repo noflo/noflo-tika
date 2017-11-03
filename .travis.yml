@@ -9,10 +9,10 @@ before_script:
 - java -version
 deploy:
   provider: npm
-  skip_cleanup: true
   email: henri.bergius@iki.fi
+  skip_cleanup: true
   api_key:
-    secure: S1YCIg+BqgFxMQJvbzlfuJfc9NHOuZrw/FZY3Io5Vi9csDOvV/1VlgSmMvk3URJpsvHN3dFD53a671dJetyykIK4hYISfB9QoJLeLC6tFlZtQ+rcmodMmh8ebA+teCtoSY/2Y2vorVYDPgq/DG8/5m08oR+DTzb9RPmS+JeMyIU=
+    secure: SVJPt7B6BwAjpVAzn0OSG+grJ1uQVYGN88jccAAYZbjTzsESgLfz33iHh0L1KnW/CydR1awhQi3+6KpMA6WTdu7P2TAqP5eDRa6UJHAl8eu0GCe8118AgVZBYkujJrvCaDhV2OxaVUdL+gPOFJALdAmFGBFgft+mlRe/sydzQm0=
   on:
     tags: true
     repo: noflo/noflo-tika
