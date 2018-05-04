@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - 6
+- 10
 before_script:
 - mkdir jar
 - wget -O jar/tika-app.jar http://archive.apache.org/dist/tika/tika-app-1.6.jar
